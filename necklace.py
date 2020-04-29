@@ -19,6 +19,8 @@ def same_necklace(first, second):
                 return True
         return False
 
+# Bonus 1 to see how many times the original string is repeated when each bead is moved
+# to the other side exactly once
 def repeats(word):
     if len(word) == 0:
         numberRepeats = 1
@@ -34,20 +36,3 @@ def repeats(word):
             if word == original:
                 numberRepeats += 1
         return numberRepeats
-
-def sort_lines(tobe):
-    return sorted(tobe, key=len)
-
-def word_file(filename):
-    with open(filename) as f:
-        lines = sort_lines(f.readlines())
-        count = 0
-        words = []
-        for i, line in enumerate(lines):
-            for j, otherline in enumerate(lines):
-                if i != j and len(line.strip()) == len(otherline.strip()): 
-                    if otherline.strip() not in words:
-                        words.append(otherline.strip())
-        return words
-
-print(word_file('small.txt'))
